@@ -3,12 +3,11 @@
   axios = require('axios');
   config = require("config-6du/6du.js");
   (async function(){
-    var option, proxy, httpsProxyAgent, httpProxyAgent, web;
+    var option, proxy, httpsProxyAgent, httpProxyAgent;
     option = {
       timeout: 6000
     };
     proxy = (await config.line('proxy'));
-    console.log(proxy);
     if (proxy) {
       httpsProxyAgent = require('https-proxy-agent');
       httpProxyAgent = require('http-proxy-agent');
