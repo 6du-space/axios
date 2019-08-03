@@ -3,9 +3,7 @@ require! <[
 ]>
 config = require("config-6du/6du.js")
 
-var web
-
-do !~>
+module.exports = !~>
   option = {
       timeout: 6000,
   }
@@ -17,8 +15,7 @@ do !~>
       httpsAgent: new httpsProxyAgent(proxy),
       httpAgent: new httpProxyAgent(proxy)
 
-  web := axios.create(option)
+  web = axios.create(option)
   web.defaults.headers.common["User-Agent"]="6du"
-
-module.exports = web
+  return web
 
