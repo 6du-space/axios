@@ -1,9 +1,9 @@
 (function(){
-  var axios, config, web;
+  var axios, config;
   axios = require('axios');
   config = require("config-6du/6du.js");
-  (async function(){
-    var option, proxy, httpsProxyAgent, httpProxyAgent;
+  module.exports = async function(){
+    var option, proxy, httpsProxyAgent, httpProxyAgent, web;
     option = {
       timeout: 6000
     };
@@ -16,6 +16,6 @@
     }
     web = axios.create(option);
     web.defaults.headers.common["User-Agent"] = "6du";
-  })();
-  module.exports = web;
+    return web;
+  };
 }).call(this);
