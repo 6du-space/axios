@@ -10,7 +10,6 @@ do !~>
       timeout: 6000,
   }
   proxy = await config.line \proxy
-  console.log proxy
   if proxy
     const httpsProxyAgent = require('https-proxy-agent')
     const httpProxyAgent = require('http-proxy-agent')
@@ -18,7 +17,7 @@ do !~>
       httpsAgent: new httpsProxyAgent(proxy),
       httpAgent: new httpProxyAgent(proxy)
 
-  web = axios.create(option)
+  web := axios.create(option)
   web.defaults.headers.common["User-Agent"]="6du"
 
 module.exports = web
